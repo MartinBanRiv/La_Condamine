@@ -28,6 +28,10 @@ body {
 	font-family: 'OpenSans';
 }
 
+header {
+	width: 100%;
+}
+
 #entete {
 	padding: 10px;
 	background-color: #004457;
@@ -72,7 +76,7 @@ body {
 #colg {
 	background-image: url('../img/fondbw.jpg');
 	background-position: right center;
-	background-size: 100%;
+	padding: 0px;
 }
 
 #main {
@@ -101,5 +105,38 @@ body {
 
 footer {
 	background-color: #004457;
-	height: 10vh;
+	height: 16vh;
+	padding: 10px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+footer>h3 {
+	font-family: 'RobotoSlab';
+	color: #D39D2F;
+}
+
+#logos>div>a {
+	margin: 20px;
+}
+
+#footer {
+	margin-top: 20px;
+	display: flex;
+	justify-content: space-between;
+	font-family: 'OpenSans';
+	color: #D39D2F;
+	font-size: 18px;
+}
+
+#footer>.column>div>a {
+	color: #D39D2F;
+}
+
+.column {
+	width: 20vw;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
 }
