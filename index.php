@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>    <!-- modif -->
+<head>  
 	<meta charset="UTF-8">
 	<link rel="shortcut icon" href="img/favicon.png">
 	<title>Accueil</title>
