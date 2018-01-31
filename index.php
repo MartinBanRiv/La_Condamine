@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head>    <!-- modif -->
 	<meta charset="UTF-8">
 	<link rel="shortcut icon" href="img/favicon.png">
 	<title>Accueil</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/style2.css">
-	<link rel="stylesheet" href="css/signin.css">
+	<link rel="stylesheet" href="css/signin.css"> 
 </head>
 <body>
 	<header>
