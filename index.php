@@ -38,9 +38,9 @@
 							</p>
 						</div>
 					</div>						
-				<?php } ?>
+				<?php }
 
-				<?php include '_views/footer0.html' ?>
+				include '_views/footer0.html' ?>
 			</div>
 		</div>
 	</div>
