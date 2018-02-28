@@ -86,19 +86,6 @@ body {
 	background-color: #D39D2F !important;
 	color: black !important;
 }
-h1 {
-	font-family: 'OpenSansSemibold';
-	font-size: 50px;
-}
-h2 {
-	font-family: 'OpenSansItalic';
-}
-h3 {
-	font-family: 'RobotoSlab';
-}
-h4 {
-	text-align: center;
-}
 
 #footer {
 	padding: 0;
