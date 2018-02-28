@@ -13,7 +13,7 @@
 
 <body>
 
-<?php include 'D:\wamp64\www\condamine\_views\header.html' ?>
+<?php include '..\_views\header.html' ?>
 
 
 <div class="col-md-4 offset-md-4" id="formulaire">
@@ -23,7 +23,7 @@
 
 </div>
 
-<?php include 'D:\wamp64\www\condamine\_views\footer.html' ?> 
+<?php include '..\_views\footer.html' ?> 
 
 
 </body>
