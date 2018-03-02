@@ -45,6 +45,14 @@
 	}
 }
 
+/* Gestion du footer */
+
+@media screen and (max-width: 650px) {
+	#footerbox {
+		flex-direction: column;
+	}
+}
+
 /* Design */
 body {
 	font-family: 'OpenSans';
