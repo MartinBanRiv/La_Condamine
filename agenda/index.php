@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-<<<<<<< <title>Agenda</title>
+<title>Agenda</title>
 	<title>Document</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 =======
@@ -237,3 +237,4 @@
 </body>
 </html>
 >>>>>>> 2c0853830fe93c3b609aafd9a7d8d0e6285f7579
+//
