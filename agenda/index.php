@@ -1,11 +1,11 @@
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
-<title>Agenda</title>
+    <title>Agenda</title>
 	<title>Document</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-=======
 	<title>Agenda</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to9aafd9a7d8d0e6285f7579
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -95,18 +95,10 @@
     	});
 </head>
     
-<body>
-	<?php include '../_views/header.html' ?>
-    
-   
 
-  <div id='calendar'></div>
-    
-
-	
-</body>
+                                             
 </html>
-=======
+                                             
 	<link rel="stylesheet" href="../_css/agenda.css">
 	<link href='fullcalendar/fullcalendar.min.css' rel='stylesheet'>
 	<link href='fullcalendar/fullcalendar.print.min.css' rel='stylesheet' media='print'>
@@ -197,6 +189,8 @@
 	}
 	</style>
 </head>
+                                             
+                                             
 <body>
 	<?php include '../_views/header.html' ?>
 
@@ -236,5 +230,12 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
->>>>>>> 2c0853830fe93c3b609aafd9a7d8d0e6285f7579
-//
+
+// balise correspondu
+// header footer fonction pas
+
+// en general
+//id=main class=container-fluid main in the agenda.css  id=main
+// inline class calendar  max-width et margin
+//class fc fc-bootstrap3 fc-ltr
+
