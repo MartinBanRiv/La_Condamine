@@ -1,0 +1,60 @@
+@font-face {
+	font-family: 'RobotoSlab';
+	src: url('../_css/fonts/RobotoSlab-Regular.ttf');
+}
+
+#boxinfo{
+	border :3px solid #004457;
+	border-radius: 10px;
+	height: 100%;
+	width: 100%;
+	text-align: left ;
+	font-size: 20px;
+	font-family: RobotoSlab;
+	padding: 3%;
+	background-color : white;
+
+}
+
+#information{
+	margin-top: 20vh;
+	margin-bottom: 20vh;
+}
+
+#information>p{
+	text-align: right;
+}
+
+#information>h2{
+	font-family: RobotoSlab;
+}
+
+label{
+	font-style: italic;
+	}
+
+#photobox{
+	display : flex;
+	justify-content: center;
+	padding-top: 5vh;
+}
+
+#prephotobox{
+	display: flex;
+	align-items: center;
+}
+
+a{
+	color:#004457;
+	font-family: RobotoSlab;
+}
+
+#photoG{
+	border: 1.5px solid #004457;
+	border-radius: 10px;
+}
+
+#info{
+	background: url("../_img/back_profil.jpg");
+	background-size : 140%;
+}
