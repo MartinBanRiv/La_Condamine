@@ -104,39 +104,44 @@
                                              
 <body>
 	<?php include '../_views/header.html' ?>
-    
-    
 
 	<div id="main" class="container-fluid">
-		<div class="col-lg-8">
-			<div id='calendar'></div>
-		</div>
+        <div class='row'>
+            <div class="col-lg-8">
+                <div id='calendar'></div>  
+            </div>
+            <div class="col-lg-4">
+                <h2>Ajouter un événement:</h2>
+                <form action="ajoutEvenement.php" method="post">
+                    <label for="intitule">Nom de l'événement: </label>
+                    <p><input type="text" name="intitule" placeholder="Nom"></p>
 
-		<div class="col-lg-4">
-			<h2>Ajouter un événement:</h2>
-			<form action="ajoutEvenement.php" method="post">
-				<label for="intitule">Nom de l'événement: </label>
-				<input type="text" name="intitule" placeholder="Nom"><br>
+                    <label for="lieu">Lieu: </label>
+                    <p><input type="text" name="lieu" placeholder="Lieu"></p>
 
-				<label for="lieu">Lieu: </label>
-				<input type="text" name="lieu" placeholder="Lieu">
+                    <label for="date">Date: </label>
+                    <span class="calendar1-msg"><input id="#dateField" type="text" name="date" value="" placeholder="Date"></span>
+                    
+                    <div id="calendar1">
+                        <div id="calendar1-wrapper1"></div>
+                        <span class="calendar1-msg"></span>
+                    </div>
+                </form>
+            </div>
+	   </div>
+    </div>
 
-				<label for="date">Date: </label>
-				<input id="#dateField" type="text" name="date" value="">
-				<div id="calendar1-wrapper1"></div>
-			</form>
-		</div>
-	</div>
-
-	<script>
-	new niceDatePicker({
-        dom: document.getElementById('calendar1-wrapper1'),
-        onClickDate: function(date){
-            $('#dateField').val(date);
-        }
+    
+    <script>
+    new niceDatePicker({
+   dom:document.getElementById('calendar1-wrapper1'),
+   onClickDate:function(date){
+       document.querySelector('.calendar1-msg').innerHTML=date;
+    }
     });
-	</script>
-
+    </script>
+        
+        
 	<?php include '../_views/footer.html' ?>
 	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -145,6 +150,8 @@
 </html>
 
 <script>
+*/ lien a mon compte et accueil/*    
+    
 */ balise correspondu/*
 */header footer fonction pas/*
 */en general/*
