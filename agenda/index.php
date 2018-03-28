@@ -120,11 +120,13 @@
                     <p><input type="text" name="lieu" placeholder="Lieu"></p>
 
                     <label for="date">Date: </label>
-                    <span class="calendar1-msg"><input id="#dateField" type="text" name="date" value="" placeholder="Date"></span>
+                    <span class="calendar1-msg"><input id="#dateField" type="text" name="date" value="" placeholder="Date">
+                    </span>
+                    
+                    <p><input type="submit" value="confirm" /></p>
                     
                     <div id="calendar1">
                         <div id="calendar1-wrapper1"></div>
-                        <span class="calendar1-msg"></span>
                     </div>
                 </form>
             </div>
@@ -137,6 +139,8 @@
    dom:document.getElementById('calendar1-wrapper1'),
    onClickDate:function(date){
        document.querySelector('.calendar1-msg').innerHTML=date;
+       var psel = document.getElementById("dateField");
+       psel.nodeValue=date
     }
     });
     </script>
@@ -150,7 +154,8 @@
 </html>
 
 <script>
-*/ lien a mon compte et accueil/*    
+*/ lien a mon compte et accueil/* 
+*/ajoute evenement noy on this page /*
     
 */ balise correspondu/*
 */header footer fonction pas/*
