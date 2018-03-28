@@ -17,6 +17,7 @@ session_start();
 </head>
 <body>
 
+	
 
 
 	<!--<?php 
@@ -26,7 +27,8 @@ session_start();
 
 	<?php include 'D:\wamp64\www\condamine\_views\header.html' ?>
 
-	<div class="row">
+
+	<div class="row" id="info">
 
 		<div class="col-lg-2 offset-lg-2" id="prephotobox" >
 			<div class="container-fluid" id="photobox">
@@ -38,9 +40,9 @@ session_start();
 			<div class="container-fluid" id="information"> 
 				<h2> Vos informations </h2>
 				<div class="container" id ="boxinfo"> 
-					<label>Nom </label> : <?php echo 'Gustave' ?> <br/>
-					<label>Prénom </label> : <?php echo 'Gustave' ?> <br/>
-					<label>Adresse mail </label> : <?php echo 'gustave.gustave@student.ecp.fr' ?> <br/>
+					<label>Nom </label> : <?php echo 'Jean' ?> <br/>
+					<label>Prénom </label> : <?php echo 'Dupuis' ?> <br/>
+					<label>Adresse mail </label> : <?php echo 'jean.dupuis@mail.fr' ?> <br/>
 					<label>Téléphone </label> : <?php echo '0666666666' ?> <br/>
 					<label>Domaine artistique </label> : <?php echo 'Danse' ?>
 				</div>
@@ -49,10 +51,9 @@ session_start();
 		</div>
 
 
-	</div>
 
 
-	
+</div>	
 
 </div>
 

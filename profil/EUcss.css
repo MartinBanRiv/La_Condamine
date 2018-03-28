@@ -12,6 +12,7 @@
 	font-size: 20px;
 	font-family: RobotoSlab;
 	padding: 3%;
+	background-color : white;
 
 }
 
@@ -51,4 +52,9 @@ a{
 #photoG{
 	border: 1.5px solid #004457;
 	border-radius: 10px;
+}
+
+#info{
+	background: url("../_img/back_profil.jpg");
+	background-size : 140%;
 }
