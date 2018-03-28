@@ -6,7 +6,7 @@
 
         if ($erreur=="email") {$err="Votre adresse mail est déjà utilisée";}
         elseif ($erreur=="pass") {$err="Les deux mots de passe ne sont pas identiques";}
-        elseif ($erreur=="pseudo") {$err="Votre pseudodyme est déjà utilisée";} 
+        elseif ($erreur=="pseudo") {$err="Votre pseudonyme est déjà utilisé";} 
         else {$err='0';}
 
         ?>
