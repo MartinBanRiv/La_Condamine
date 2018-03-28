@@ -1,3 +1,19 @@
+<?php 
+try {
+	$db=new PDO('mysql:host=localhost;dbname=condamine;charset=utf8','root','',array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+}
+catch(Exception $e){
+	die('Erreur: '.$e->getMessage());
+}
+
+function secure($data) {
+	$data = trim($data);
+	$data = stripslashes($data);
+	$data = htmlspecialchars($data);
+	return($data);
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +33,7 @@
 	<script src="niceDatePicker-master/nice-date-picker.js"></script>
 	<script>
 	$(document).ready(function() {
-	$('#calendar').fullCalendar({
+		$('#calendar').fullCalendar({
 			header: {
 				left: 'prev,next today',
 				center: 'title',
@@ -30,60 +46,60 @@
 			editable: true,
 			eventLimit: true, // allow "more" link when too many events
 			events: [
-			{
-			  title: 'All Day Event',
-			  start: '2018-02-01'
-			},
-			{
-			  title: 'Long Event',
-			  start: '2018-02-07',
-			  end: '2018-02-10'
-			},
-			{
-			  id: 99,
-			  title: 'Repeating Event',
-			  start: '2018-02-09T16:00:00'
-			},
-			{
-			  id: 99,
-			  title: 'Repeating Event',
-			  start: '2018-02-16T16:00:00'
-			},
-			{
-			  title: 'Conference',
-			  start: '2018-02-11',
-			  end: '2018-02-13'
-			},
-			{
-			  title: 'Meeting',
-			  start: '2018-02-12T10:30:00',
-			  end: '2018-02-12T12:30:00'
-			},
-			{
-			  title: 'Lunch',
-			  start: '2018-02-12T12:00:00'
-			},
-			{
-			  title: 'Meeting',
-			  start: '2018-02-12T14:30:00'
-			},
-			{
-			  title: 'Happy Hour',
-			  start: '2018-02-12T17:30:00'
-			},
-			{
-			  title: 'Dinner',
-			  start: '2018-02-12T20:00:00'
-			},
-			{
-			  title: 'Birthday Party',
-			  start: '2018-02-13T07:00:00'
-			},
-			{
-			  title: 'Click for Google',
-			  url: 'http://google.com/',
-			  start: '2018-02-28'
-			}
+				{
+				  title: 'All Day Event',
+				  start: '2018-02-01'
+				},
+				{
+				  title: 'Long Event',
+				  start: '2018-02-07',
+				  end: '2018-02-10'
+				},
+				{
+				  id: 99,
+				  title: 'Repeating Event',
+				  start: '2018-02-09T16:00:00'
+				},
+				{
+				  id: 99,
+				  title: 'Repeating Event',
+				  start: '2018-02-16T16:00:00'
+				},
+				{
+				  title: 'Conference',
+				  start: '2018-02-11',
+				  end: '2018-02-13'
+				},
+				{
+				  title: 'Meeting',
+				  start: '2018-02-12T10:30:00',
+				  end: '2018-02-12T12:30:00'
+				},
+				{
+				  title: 'Lunch',
+				  start: '2018-02-12T12:00:00'
+				},
+				{
+				  title: 'Meeting',
+				  start: '2018-02-12T14:30:00'
+				},
+				{
+				  title: 'Happy Hour',
+				  start: '2018-02-12T17:30:00'
+				},
+				{
+				  title: 'Dinner',
+				  start: '2018-02-12T20:00:00'
+				},
+				{
+				  title: 'Birthday Party',
+				  start: '2018-02-13T07:00:00'
+				},
+				{
+				  title: 'Click for Google',
+				  url: 'http://google.com/',
+				  start: '2018-02-28'
+				}
 			]
     	});
 	});
@@ -102,7 +118,7 @@
 	<div id="main" class="container-fluid">
 		<div class="row">
 			<div class="col-lg-8">
-				<div id='calendar'></div>
+				<div id="calendar"></div>
 			</div>
 
 			<div class="col-lg-4">
