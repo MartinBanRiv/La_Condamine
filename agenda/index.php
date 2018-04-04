@@ -12,6 +12,27 @@ function secure($data) {
 	$data = htmlspecialchars($data);
 	return($data);
 }
+
+$query = "select * from events limit 20"; 
+
+$events = array();
+$req = $db->query($query);
+
+foreach ($req as $event) { 
+	$id = $event['id'];
+	$title = $event['title']; 
+	$start = $event['start'];
+	$end = $event['end'];
+	$allDay = $event['allDay'];
+	$url=$event['url']; 
+
+	$events[] = array('id' => $id,'title'=> $title, 'start' => $start, 'end' => $end, 'allDay' => $allDay, 'url'=> $url);
+}
+
+$file = fopen('json/events.json', 'w');
+fwrite($file, json_encode($events));
+fclose($file);
+
 ?>
 
 <!DOCTYPE html>
@@ -33,6 +54,18 @@ function secure($data) {
 	<script src="niceDatePicker-master/nice-date-picker.js"></script>
 	<script>
 	$(document).ready(function() {
+		var events = [];
+
+		<?php foreach ($events as $event) { ?>
+			var event = {};
+
+			<?php foreach ($event as $key => $val) { ?>
+				event.<?php echo $key; ?> = <?php echo $val; ?>;
+			<?php } ?>
+
+			events.push(event);
+		<?php } ?>
+
 		$('#calendar').fullCalendar({
 			header: {
 				left: 'prev,next today',
@@ -45,7 +78,7 @@ function secure($data) {
 			navLinks: true, // can click day/week names to navigate views
 			editable: true,
 			eventLimit: true, // allow "more" link when too many events
-			events: 'json/events.json'
+			events: events,
     	});
 	});
 	</script>
