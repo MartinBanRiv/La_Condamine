@@ -58,7 +58,7 @@
 
 			<div id="colart" class="col-lg-3 push-lg-9 align-items-center">
 				<div class="container-fluid" id="artdm">
-					<p> Artiste du moment à trouver </p>
+					<p> ARTISTE DU MOMENT </p>
 				</div>	
 			</div>	
 

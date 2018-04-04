@@ -77,6 +77,7 @@
 	padding: 0px;
 	border-bottom : solid 2px #D39D2F;
 	margin-bottom: 30px;
+	direction: rtl;
 }
 
 #secondrow {
@@ -91,6 +92,7 @@
 
 #colart {
 	color: white;
+	text-align: center;
 }
 
 #forum {
@@ -107,3 +109,4 @@
 #main {
 	padding: 0px;
 }
+
