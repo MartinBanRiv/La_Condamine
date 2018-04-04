@@ -64,7 +64,6 @@
 
 		</div>
 
-		<div class="row" id="secondrow">
 
 			
 			<?php include '../_views/footer.html' ?>
