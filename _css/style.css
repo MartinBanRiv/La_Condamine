@@ -86,7 +86,7 @@ body {
 	background-color: #D39D2F !important;
 	color: black !important;
 }
-²
+
 #footer {
 	padding: 0;
 }
@@ -101,10 +101,9 @@ body {
 	color: white;
 	padding: 0%;
 	padding-top: 30px;
-	padding-bottom: 20px;
+	padding-bottom: 80px;
 	background-color: #222222;
 	text-align: center;
 	display: flex;
 	justify-content: space-around;
 }
-

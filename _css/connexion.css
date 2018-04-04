@@ -45,6 +45,19 @@
 }
 
 /* Design */
+h1 {
+	font-family: 'OpenSansSemibold';
+	font-size: 50px;
+}
+h2 {
+	font-family: 'OpenSansItalic';
+}
+h3 {
+	font-family: 'RobotoSlab';
+}
+h4 {
+	text-align: center;
+}
 #body {
 	background: linear-gradient(to bottom right, #313131, #004457);
 	padding: 0px;
@@ -57,7 +70,6 @@ hr {
 	text-align: left;
 	color: white;
 	font-size: 16px;
-
 }
 .article>h3, .article>div>h3 {
 	color: #D39D2F;
