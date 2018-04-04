@@ -1,3 +1,40 @@
+<?php 
+try {
+	$db=new PDO('mysql:host=localhost;dbname=condamine;charset=utf8','root','',array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+}
+catch(Exception $e){
+	die('Erreur: '.$e->getMessage());
+}
+
+function secure($data) {
+	$data = trim($data);
+	$data = stripslashes($data);
+	$data = htmlspecialchars($data);
+	return($data);
+}
+
+$query = "select * from events limit 20"; 
+
+$events = array();
+$req = $db->query($query);
+
+foreach ($req as $event) { 
+	$id = $event['id'];
+	$title = $event['title']; 
+	$start = $event['start'];
+	$end = $event['end'];
+	$allDay = $event['allDay'];
+	$url=$event['url']; 
+
+	$events[] = array('id' => $id,'title'=> $title, 'start' => $start, 'end' => $end, 'allDay' => $allDay, 'url'=> $url);
+}
+
+$file = fopen('json/events.json', 'w');
+fwrite($file, json_encode($events));
+fclose($file);
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +54,19 @@
 	<script src="niceDatePicker-master/nice-date-picker.js"></script>
 	<script>
 	$(document).ready(function() {
-	$('#calendar').fullCalendar({
+		var events = [];
+
+		<?php foreach ($events as $event) { ?>
+			var event = {};
+
+			<?php foreach ($event as $key => $val) { ?>
+				event.<?php echo $key; ?> = <?php echo $val; ?>;
+			<?php } ?>
+
+			events.push(event);
+		<?php } ?>
+
+		$('#calendar').fullCalendar({
 			header: {
 				left: 'prev,next today',
 				center: 'title',
@@ -29,62 +78,7 @@
 			navLinks: true, // can click day/week names to navigate views
 			editable: true,
 			eventLimit: true, // allow "more" link when too many events
-			events: [
-			{
-			  title: 'All Day Event',
-			  start: '2018-02-01'
-			},
-			{
-			  title: 'Long Event',
-			  start: '2018-02-07',
-			  end: '2018-02-10'
-			},
-			{
-			  id: 99,
-			  title: 'Repeating Event',
-			  start: '2018-02-09T16:00:00'
-			},
-			{
-			  id: 99,
-			  title: 'Repeating Event',
-			  start: '2018-02-16T16:00:00'
-			},
-			{
-			  title: 'Conference',
-			  start: '2018-02-11',
-			  end: '2018-02-13'
-			},
-			{
-			  title: 'Meeting',
-			  start: '2018-02-12T10:30:00',
-			  end: '2018-02-12T12:30:00'
-			},
-			{
-			  title: 'Lunch',
-			  start: '2018-02-12T12:00:00'
-			},
-			{
-			  title: 'Meeting',
-			  start: '2018-02-12T14:30:00'
-			},
-			{
-			  title: 'Happy Hour',
-			  start: '2018-02-12T17:30:00'
-			},
-			{
-			  title: 'Dinner',
-			  start: '2018-02-12T20:00:00'
-			},
-			{
-			  title: 'Birthday Party',
-			  start: '2018-02-13T07:00:00'
-			},
-			{
-			  title: 'Click for Google',
-			  url: 'http://google.com/',
-			  start: '2018-02-28'
-			}
-			]
+			events: events,
     	});
 	});
 	</script>
@@ -102,7 +96,7 @@
 	<div id="main" class="container-fluid">
 		<div class="row">
 			<div class="col-lg-8">
-				<div id='calendar'></div>
+				<div id="calendar"></div>
 			</div>
 
 			<div class="col-lg-4">
