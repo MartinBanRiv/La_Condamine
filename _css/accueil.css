@@ -86,13 +86,16 @@
 
 }
 
-#bigrow {
+#content {
 	background: linear-gradient(to bottom right, #313131, #004457);
 }
 
 #colart {
-	color: white;
+	background-color: white !important;
 	text-align: center;
+	padding: 0%;
+	padding-top: 30vh;
+
 }
 
 #forum {
