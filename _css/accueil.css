@@ -103,3 +103,7 @@
 	text-align: center;
 	align-items: center;
 }
+
+#main {
+	padding: 0px;
+}
