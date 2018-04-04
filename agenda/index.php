@@ -1,3 +1,40 @@
+<?php 
+try {
+	$db=new PDO('mysql:host=localhost;dbname=condamine;charset=utf8','root','',array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+}
+catch(Exception $e){
+	die('Erreur: '.$e->getMessage());
+}
+
+function secure($data) {
+	$data = trim($data);
+	$data = stripslashes($data);
+	$data = htmlspecialchars($data);
+	return($data);
+}
+
+$query = "select * from events limit 20"; 
+
+$events = array();
+$req = $db->query($query);
+
+foreach ($req as $event) { 
+	$id = $event['id'];
+	$title = $event['title']; 
+	$start = $event['start'];
+	$end = $event['end'];
+	$allDay = $event['allDay'];
+	$url=$event['url']; 
+
+	$events[] = array('id' => $id,'title'=> $title, 'start' => $start, 'end' => $end, 'allDay' => $allDay, 'url'=> $url);
+}
+
+$file = fopen('json/events.json', 'w');
+fwrite($file, json_encode($events));
+fclose($file);
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,12 +43,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="../_css/style.css">
-	<link rel="stylesheet" href="../_css/connexion.css">
-	<link rel="stylesheet" href="../_css/signin.css">
 	<link rel="stylesheet" href="../_css/agenda.css">
 	<link href='fullcalendar/fullcalendar.min.css' rel='stylesheet'>
 	<link href='fullcalendar/fullcalendar.print.min.css' rel='stylesheet' media='print'>
-	<link rel="stylesheet" href="niceDatePicker-master/nice-date-picker.css">
 
 	<script src='fullcalendar/lib/moment.min.js'></script>
 	<script src='fullcalendar/lib/jquery.min.js'></script>
@@ -20,6 +54,18 @@
 	<script src="niceDatePicker-master/nice-date-picker.js"></script>
 	<script>
 	$(document).ready(function() {
+		var events = [];
+
+		<?php foreach ($events as $event) { ?>
+			var event = {};
+
+			<?php foreach ($event as $key => $val) { ?>
+				event.<?php echo $key; ?> = <?php echo $val; ?>;
+			<?php } ?>
+
+			events.push(event);
+		<?php } ?>
+
 		$('#calendar').fullCalendar({
 			header: {
 				left: 'prev,next today',
@@ -32,67 +78,11 @@
 			navLinks: true, // can click day/week names to navigate views
 			editable: true,
 			eventLimit: true, // allow "more" link when too many events
-			events: [
-			{
-			  title: 'All Day Event',
-			  start: '2018-02-01'
-			},
-			{
-			  title: 'Long Event',
-			  start: '2018-02-07',
-			  end: '2018-02-10'
-			},
-			{
-			  id: 99,
-			  title: 'Repeating Event',
-			  start: '2018-02-09T16:00:00'
-			},
-			{
-			  id: 99,
-			  title: 'Repeating Event',
-			  start: '2018-02-16T16:00:00'
-			},
-			{
-			  title: 'Conference',
-			  start: '2018-02-11',
-			  end: '2018-02-13'
-			},
-			{
-			  title: 'Meeting',
-			  start: '2018-02-12T10:30:00',
-			  end: '2018-02-12T12:30:00'
-			},
-			{
-			  title: 'Lunch',
-			  start: '2018-02-12T12:00:00'
-			},
-			{
-			  title: 'Meeting',
-			  start: '2018-02-12T14:30:00'
-			},
-			{
-			  title: 'Happy Hour',
-			  start: '2018-02-12T17:30:00'
-			},
-			{
-			  title: 'Dinner',
-			  start: '2018-02-12T20:00:00'
-			},
-			{
-			  title: 'Birthday Party',
-			  start: '2018-02-13T07:00:00'
-			},
-			{
-			  title: 'Click for Google',
-			  url: 'http://google.com/',
-			  start: '2018-02-28'
-			}
-			]
-    	})});
-    </script>
-                                           
-
-<style>
+			events: events,
+    	});
+	});
+	</script>
+	<style>
 	#calendar {
 		max-width: 1000px;
 		margin: 0 auto;
@@ -100,12 +90,11 @@
 </style>
     
 </head>
-                                             
-                                             
 <body>
 	<?php include '../_views/header.html' ?>
 
 	<div id="main" class="container-fluid">
+
         <div class='row'>
             <div class="col-lg-8">
                 <div id='calendar'></div>  
@@ -144,8 +133,7 @@
     }
     });
     </script>
-        
-        
+
 	<?php include '../_views/footer.html' ?>
 	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -170,3 +158,4 @@
 */ table-bordered est dans fullcalebdar       class=fc-head-container sont sem lun mar mer  est dans .fc td de full.min.css/*
 */ need to understand the document ready fonction /*
 </script>
+
