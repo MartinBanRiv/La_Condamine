@@ -33,8 +33,7 @@
 /* Gestion du body */
 @media screen and (min-width: 992px) {
 	#connexion {
-		position: fixed;
-		right: 0;
+				right: 0;
 		height: 70%;
 	}
 }
@@ -45,25 +44,62 @@
 }
 
 /* Design */
-#body {
+/* #body {
 	background: linear-gradient(to bottom right, #313131, #004457);
 	padding: 0px;
-}
-hr {
-	background-color: #D39D2F;
-}
+	
+} */
+
 .article {
-	margin-bottom: 100px;
+	margin-bottom: 30px;
 	text-align: left;
 	color: white;
 	font-size: 16px;
-
+	
 }
+
 .article>h3, .article>div>h3 {
 	color: #D39D2F;
+	font-size: 30px;
+	text-align: center;
+	margin-top : 25px;
+	margin-bottom: 15px;
 }
 
 #connexion {
 	display: flex;
+	align-items: center;
+}
+
+#firstrow {
+	height: 65vh;
+	overflow-y: scroll;
+	padding: 0px;
+	border-bottom : solid 2px #D39D2F;
+	margin-bottom: 30px;
+}
+
+#secondrow {
+	color: white;
+	margin-bottom: 30px;
+
+}
+
+#bigrow {
+	background: linear-gradient(to bottom right, #313131, #004457);
+}
+
+#colart {
+	color: white;
+}
+
+#forum {
+	text-align: center;
+	border-right : solid 2px #D39D2F;
+	align-items: center;
+}
+
+#agenda {
+	text-align: center;
 	align-items: center;
 }
